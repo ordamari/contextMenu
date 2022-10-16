@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { ContextMenu } from "./components/ContextMenu";
+import './app.css'
+import { useContextMenu } from "./hooks/useContextMenu";
 
 function App() {
+
+  const { contextMenuHandler, contextMenuPosition, isShowContextMenu } = useContextMenu();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div onContextMenu={contextMenuHandler} className="App">
+      <div className="explain">
+        <h2>Open context menu</h2>
+        <p>right mouse click on computer or hold touch in mobile</p>
+      </div>
+
+      <ContextMenu
+        position={contextMenuPosition}
+        isShowContextMenu={isShowContextMenu}
+      >
+        <div className="menu-item">first</div>
+        <div className="menu-item">second</div>
+        <div className="menu-item">third</div>
+        <div className="menu-item">fourth</div>
+      </ContextMenu>
+    </div >
   );
 }
 

@@ -1,0 +1,46 @@
+.context-menu-container {
+    // transform: translateX(-100%);
+    position: fixed;
+    padding: 9px 0;
+    max-width: 340px;
+    min-width: 200px;
+    background-color: white;
+    --shadow-rgb: 12, 20, 26;
+    box-shadow: 0 2px 5px 0 rgba(var(--shadow-rgb), .26), 0 2px 10px 0 rgba(var(--shadow-rgb), .16);
+    top: 0;
+    left: 0;
+    z-index: 10;
+    border-radius: 3px;
+    font-size: 14.5px;
+    animation-name: show;
+    animation-duration: 150ms;
+
+
+
+    .menu-item {
+        padding-inline-start: 13px;
+        padding-inline-end: 58px;
+        padding-top: 16px;
+        cursor: pointer;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: 14.5px;
+        padding-bottom: 10px;
+
+        &:hover {
+            background-color: #f5f6f6;
+        }
+
+        @keyframes show {
+            from {
+                scale: 0;
+            }
+
+            to {
+                scale: 1;
+            }
+        }
+
+    }
+}
